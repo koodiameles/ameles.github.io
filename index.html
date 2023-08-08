@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald"> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="logic.js" defer></script>
+</head>
+<div class="jagged-border"></div>
+
+<body>
+  <nav class="navbar">
+    <li class="links">
+      <a onclick="toggleContent('general')">JUSSI JUNNILA</a>
+      <a onclick="toggleContent('programming')">PROGRAMMING</a>
+      <a onclick="toggleContent('dogs')">DOGS</a>
+    </li>
+  </nav>
+
+  <content id="general">
+    <header class="header margin-x-5">
+      <!-- <h2 class="linear-gradient-hover margin-bottom-5" >Jussi Junnila</h2>
+      <p class="header-small-fading-text" >Piano player - Programmer - Dog Lover - Brewer - Gamer</p> -->
+    </header>
+    <main class="main column">
+        <div class="general">
+         <p class="padding-30 text-animation-delay0" onclick="toggleContent('programming')">
+            Discover more about my <span class="blue-highlight">Programming Career.</span>
+          </p>
+          <p class="padding-30 text-animation-delay1" onclick="copyToClipboard()" >
+            For any inquiries, please <span class="blue-highlight">Email me.</span>
+            <div id="popup" class="hide">Email address copied to clipboard!</div>
+          </p>
+          <!-- <div id="popup" class="hide">Email address copied to clipboard!</div> -->
+          <p class="padding-30 text-animation-delay2" onclick="toggleContent('dogs')">
+            Check out my gallery of <span class="blue-highlight">Adorable Dogs.</span>
+          </p>
+        </div>
+    </main>
+  </content>
+
+  <content id="programming">
+    <header class="header margin-x-5">
+      <h2 class="linear-gradient-hover margin-bottom-5" >Front-end oriented developer</h2>
+      <p class="header-small-fading-text" > Java - C# - Rest API - Single page App - JavaScript - HTML - CSS - React - Redux - Responsive design - Game development - Unity - Git - Version Control - And more </p>
+    </header>
+    <main class="main row">
+      <div class="main-left-section col-7">
+        <div class="flex row" onclick="nextTextBlock('programmingBlockOne', 1)">
+          <p id="programmingBlockOne" class="text-animation-delay1">
+            I've worked on a complex industrial application for over a year.
+          </p>
+          <div class="arrow self-center" >&gt&gt</div>
+        </div>
+        <div class="flex row" onclick="nextTextBlock('programmingBlockTwo', 2)">
+          <p id="programmingBlockTwo" class="text-animation-delay1">I use React and Redux on a daily basis and apply responsive design in my work.</p>
+          <div class="arrow self-center" >&gt&gt</div>
+        </div>
+      </div>
+      <div class="main-right-section col-5">
+        <p class="text-animation-delay2" >2019: Began programming with Python as a hobby.</p>
+        <p class="text-animation-delay2">2020: Initiated software development studies.</p>
+        <p class="text-animation-delay2">2022: Started a position as a Junior Front-End Developer at an industrial company.</p>
+        <p class="text-animation-delay2">2023: Earned a Bachelor's Degree in Software Development.</p>
+      </div>
+    </main>
+  </content>
+
+
+  <content id="dogs">
+    <header class="header margin-x-5">
+      <h2 id="dog-header-id" class="linear-gradient-hover margin-bottom-5"><!-- Text is appended here with JS --></h2>
+      <!-- <p id="dog-description" class="header-small-fading-text" ></p> -->
+    </header>
+    <main class="main row center">
+        <button id="nextButton" class="hidden-next-dog-button" onclick="nextDogImage()">Next</button>
+        <div class="dog-image-container"  id="dog-image-id" >
+          <!-- Dog image is appended here with JS -->
+        </div>
+        <div id="clickability-indicator-id" class="clickability-indicator">&gt&gt</div>
+    </main>
+  </content>
+
+ <footer class="footer">
+  <p>jussijunnilaprof@gmail.com</p>
+ </footer>
+  
+</body>
+</html>
