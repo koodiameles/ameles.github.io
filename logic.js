@@ -3,57 +3,57 @@
 const sectionList = ["general", "programming", "dogs"]
 const images = [
   {
-    imgName: 'feku_jump.jpg',
+    imgName: 'feku_jump-min.jpg',
     dogName: "Feku",
     imgDescription: 'Feku jumping'
   },
   {
-    imgName: 'lulu.jpg',
+    imgName: 'lulu-min.jpg',
     dogName: "Rudi",
     imgDescription: 'Rudi sleeping'
   },
   {
-    imgName: 'feku_ja_luu.jpg',
+    imgName: 'feku_ja_luu-min.jpg',
     dogName: "Feku",
     imgDescription: 'Feku eating a big bone'
   },
   {
-    imgName: 'feku_pentu.jpg',
+    imgName: 'feku_pentu-min.jpg',
     dogName: "Feku",
     imgDescription: 'Feku as a puppy'
   },
   {
-    imgName: 'lulu3.jpg',
+    imgName: 'lulu3-min.jpg',
     dogName: "Rudi",
     imgDescription: 'Rudi guarding the Christmas presents'
   },
   {
-    imgName: 'feku_pentu2.jpg',
+    imgName: 'feku_pentu2-min.jpg',
     dogName: "Feku",
     imgDescription: 'Feku as a puppy'
   },
   {
-    imgName: 'feku_pentu3.jpg',
+    imgName: 'feku_pentu3-min.jpg',
     dogName: "Feku",
     imgDescription: 'Feku as a puppy'
   },
   {
-    imgName: 'feku_pentu4.jpg',
+    imgName: 'feku_pentu4-min.jpg',
     dogName: "Feku",
     imgDescription: 'Feku in a winter forest'
   },
   {
-    imgName: 'feku_ja_rudi.jpg',
+    imgName: 'feku_ja_rudi-min.jpg',
     dogName: "Feku",
     imgDescription: 'Feku and Rudi'
   },
   {
-    imgName: 'feku_pentu5.jpg',
+    imgName: 'feku_pentu5-min.jpg',
     dogName: "Feku",
     imgDescription: 'Feku is sleepy'
   },
   {
-    imgName: 'Jussi.jpg',
+    imgName: 'Jussi-min.jpg',
     dogName: "Rudi",
     imgDescription: 'Me and Rudi <3'
   },
