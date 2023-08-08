@@ -67,7 +67,7 @@ const textElements = {
   ],
   programmingBlockTwo: [
     "I use React and Redux on a daily basis and apply responsive design in my work.",
-    "This website was crafted using vanilla JS, HTML, and CSS and it showcases some of my web development skills."
+    "This website was crafted using vanilla JS, HTML, and CSS but I'm able to use frameworks and libraries as well."
   ]
 }
 
