@@ -5,6 +5,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jussi Junnila Homepage</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- JSON-LD for Structured Data -->
   <script type="application/ld+json">
     {
       "@context" : "https://schema.org",
@@ -14,17 +22,14 @@
       "url" : "https://jussi-junnila.fi/"
     }
   </script>
-  <link rel="stylesheet" href="style.css">
-  
-  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald"> -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- JavaScript Files -->
   <script src="logic.js" defer></script>
+  <script src="images.js" defer></script>
 </head>
-<div class="jagged-border"></div>
 
 <body>
+  <div class="jagged-border"></div>
   <nav class="navbar">
     <li class="links">
       <a onclick="toggleContent('general')">JUSSI JUNNILA</a>
@@ -35,7 +40,7 @@
 
   <content id="general">
     <header class="header margin-x-5">
-      <!-- <h2 class="linear-gradient-hover margin-bottom-5" >Jussi Junnila</h2>
+      <!-- <h2 class="margin-bottom-5" >Jussi Junnila</h2>
       <p class="header-small-fading-text" >Piano player - Programmer - Dog Lover - Brewer - Gamer</p> -->
     </header>
     <main class="main column">
@@ -57,7 +62,7 @@
 
   <content id="programming">
     <header class="header margin-x-5">
-      <h2 class="linear-gradient-hover margin-bottom-5" >Front-end oriented developer</h2>
+      <h2 class="margin-bottom-5" >Front-end oriented developer</h2>
       <p class="header-small-fading-text" > Java - C# - Rest API - Single page App - JavaScript - HTML - CSS - React - Redux - Responsive design - Game development - Unity - Git - Version Control - And more </p>
     </header>
     <main class="main row">
@@ -66,11 +71,11 @@
           <p id="programmingBlockOne" class="text-animation-delay1">
             I've worked on a complex industrial application for over a year.
           </p>
-          <div class="arrow self-center" >&gt&gt</div>
+          <img class="blink" src="icons/icon-arrow-bar-right.svg" alt="Arrow Icon">
         </div>
         <div class="flex row" onclick="nextTextBlock('programmingBlockTwo', 2)">
           <p id="programmingBlockTwo" class="text-animation-delay1">I use React and Redux on a daily basis and apply responsive design in my work.</p>
-          <div class="arrow self-center" >&gt&gt</div>
+          <img class="blink" src="icons/icon-arrow-bar-right.svg" alt="Arrow Icon">
         </div>
       </div>
       <div class="main-right-section col-5">
@@ -85,15 +90,17 @@
 
   <content id="dogs">
     <header class="header margin-x-5">
-      <h2 id="dog-header-id" class="linear-gradient-hover margin-bottom-5"><!-- Text is appended here with JS --></h2>
-      <!-- <p id="dog-description" class="header-small-fading-text" ></p> -->
+      <h2 id="dog-header-id" class=""><!-- Text is appended here with JS --></h2>
+      <!-- <p id="dog-description" class="header-small-fading-text" >Text is appended here with JS</p> -->
     </header>
     <main class="main row center">
-        <button id="nextButton" class="hidden-next-dog-button" onclick="nextDogImage()">Next</button>
-        <div class="dog-image-container"  id="dog-image-id" >
-          <!-- Dog image is appended here with JS -->
-        </div>
-        <div id="clickability-indicator-id" class="clickability-indicator">&gt&gt</div>
+        <button id="previousButton" class="next-dog-button " onclick="nextDogImage('previous')">
+          <img class="blink big-icon " src="icons/icon-arrow-bar-left.svg" alt="Arrow Icon">
+        </button>
+        <div class="dog-image-container" id="dog-image-id" ><!--  Image is appended here with JS --></div>
+        <button id="nextButton" class="next-dog-button " onclick="nextDogImage('next')">
+          <img class="blink big-icon " src="icons/icon-arrow-bar-right.svg" alt="Arrow Icon">
+        </button>
     </main>
   </content>
 

@@ -1,64 +1,6 @@
 // CONSTANTS AND VARIABLES
 // ------------------
 const sectionList = ["general", "programming", "dogs"]
-const images = [
-  {
-    imgName: 'feku_jump-min.jpg',
-    dogName: "Feku",
-    imgDescription: 'Feku jumping'
-  },
-  {
-    imgName: 'lulu-min.jpg',
-    dogName: "Rudi",
-    imgDescription: 'Rudi sleeping'
-  },
-  {
-    imgName: 'feku_ja_luu-min.jpg',
-    dogName: "Feku",
-    imgDescription: 'Feku eating a big bone'
-  },
-  {
-    imgName: 'feku_pentu-min.jpg',
-    dogName: "Feku",
-    imgDescription: 'Feku as a puppy'
-  },
-  {
-    imgName: 'lulu3-min.jpg',
-    dogName: "Rudi",
-    imgDescription: 'Rudi guarding the Christmas presents'
-  },
-  {
-    imgName: 'feku_pentu2-min.jpg',
-    dogName: "Feku",
-    imgDescription: 'Feku as a puppy'
-  },
-  {
-    imgName: 'feku_pentu3-min.jpg',
-    dogName: "Feku",
-    imgDescription: 'Feku as a puppy'
-  },
-  {
-    imgName: 'feku_pentu4-min.jpg',
-    dogName: "Feku",
-    imgDescription: 'Feku in a winter forest'
-  },
-  {
-    imgName: 'feku_ja_rudi-min.jpg',
-    dogName: "Feku",
-    imgDescription: 'Feku and Rudi'
-  },
-  {
-    imgName: 'feku_pentu5-min.jpg',
-    dogName: "Feku",
-    imgDescription: 'Feku is sleepy'
-  },
-  {
-    imgName: 'Jussi-min.jpg',
-    dogName: "Rudi",
-    imgDescription: 'Me and Rudi <3'
-  },
-];
-
 const textElements = {
   programmingBlockOne: [
     "I've worked on a complex industrial application for over a year.",
@@ -72,7 +14,7 @@ const textElements = {
 }
 
 let currentSection = "general"
-let currentDogImage = 0;
+let currentDogImageIndex = 0;
 let text1Counter = 0;
 let text2Counter = 0;
 
@@ -89,14 +31,20 @@ window.onload = function initializeDogImages () {
 const displayDogImage = () => {
 
   const dogHeaderText = document.getElementById('dog-header-id');
-  dogHeaderText.innerHTML = images[currentDogImage].imgDescription;
+  dogHeaderText.innerHTML = images[currentDogImageIndex].imgDescription;
+  // Remove animation class from the element
+  dogHeaderText.classList.remove(...dogHeaderText.classList);
+  // Force a reflow (otherwise browser automatic performance optimization prevents css animation)
+  void dogHeaderText.offsetWidth;
+  // Add the animation class back
+  dogHeaderText.classList.add("text-animation-delay0");
 
   const dogImageContainer = document.getElementById('dog-image-id');
   
   // Create the new image element
   const newImage = document.createElement('img');
-  newImage.src = './images/dogs/' + images[currentDogImage].imgName;
-  newImage.setAttribute("id", images[currentDogImage].imgName);
+  newImage.src = './images/dogs/' + images[currentDogImageIndex].imgName;
+  newImage.setAttribute("id", images[currentDogImageIndex].imgName);
   newImage.classList.add("slide", "moving-in");
   
   // Append the new image to the container
@@ -109,34 +57,35 @@ const displayDogImage = () => {
   }, 200);
 }
 
-const nextDogImage = () => {
+const nextDogImage = (direction) => {
 
-  // remove clickabilityIndicator after user has changed image once
-  const indicator = document.getElementById('clickability-indicator-id');
-  if (!indicator.classList.contains('hide')) {
-    indicator.classList.add('hide');
-  }
-
-  // Get the next button and disable it
+  // Get the next/previous buttons and disable them
   const nextBtn = document.getElementById('nextButton');
+  const previousBtn = document.getElementById('previousButton');
   nextBtn.disabled = true;
+  previousBtn.disabled = true;
   // Get container
   const dogImageContainer = document.getElementById('dog-image-id');
   // Get old image and move it out
-  const oldImage = document.getElementById(images[currentDogImage].imgName);
+  const oldImage = document.getElementById(images[currentDogImageIndex].imgName);
   oldImage.classList.add("moving-out")
 
-  // Increment the current image index
-  currentDogImage = (currentDogImage + 1);
-  if (currentDogImage >= images.length) {currentDogImage  = 0}
-  // Display the new image
+  // Set image current image index and Display the new image
+  if (direction === "next") {
+    currentDogImageIndex = (currentDogImageIndex + 1);
+  } else {
+    currentDogImageIndex = (currentDogImageIndex - 1);
+  }
+  if (currentDogImageIndex >= images.length) {currentDogImageIndex  = 0}
+  if (currentDogImageIndex === -1) {currentDogImageIndex  = (images.length - 1)}
   displayDogImage();
 
-  // After the transition is done, remove the old image from the DOM, enable next-button 
+  // After the transition is done, remove the old image from the DOM, enable buttons 
   setTimeout(() => {
     if (oldImage) {
         dogImageContainer.removeChild(oldImage);
         nextBtn.disabled = false;
+        previousBtn.disabled = false;
     }
   }, 1000);
 }
@@ -186,13 +135,6 @@ const toggleContent = (selectedSection) => {
     const textBlock2 = document.getElementById("programmingBlockTwo");
     textBlock2.classList.remove(...textBlock1.classList);
     textBlock2.classList.add("text-animation-delay1");
-  }
-  // When navigating to dogs, remove "hide" from clickability-indicator
-  if (selectedSection === "dogs") {
-    const indicator = document.getElementById('clickability-indicator-id');
-    if (indicator.classList.contains('hide')) {
-      indicator.classList.remove('hide');
-    }
   }
 }
 
