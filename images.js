@@ -1,4 +1,4 @@
-const images = [
+const dogImages = [
   {
     imgName: 'feku-1.jpg',
     dogName: "Feku",

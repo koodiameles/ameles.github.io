@@ -31,7 +31,7 @@ window.onload = function initializeDogImages () {
 const displayDogImage = () => {
 
   const dogHeaderText = document.getElementById('dog-header-id');
-  dogHeaderText.innerHTML = images[currentDogImageIndex].imgDescription;
+  dogHeaderText.innerHTML = dogImages[currentDogImageIndex].imgDescription;
   // Remove animation class from the element
   dogHeaderText.classList.remove(...dogHeaderText.classList);
   // Force a reflow (otherwise browser automatic performance optimization prevents css animation)
@@ -43,8 +43,8 @@ const displayDogImage = () => {
   
   // Create the new image element
   const newImage = document.createElement('img');
-  newImage.src = './images/dogs/' + images[currentDogImageIndex].imgName;
-  newImage.setAttribute("id", images[currentDogImageIndex].imgName);
+  newImage.src = './images/dogs/' + dogImages[currentDogImageIndex].imgName;
+  newImage.setAttribute("id", dogImages[currentDogImageIndex].imgName);
   newImage.classList.add("slide", "moving-in");
   
   // Append the new image to the container
@@ -67,7 +67,7 @@ const nextDogImage = (direction) => {
   // Get container
   const dogImageContainer = document.getElementById('dog-image-id');
   // Get old image and move it out
-  const oldImage = document.getElementById(images[currentDogImageIndex].imgName);
+  const oldImage = document.getElementById(dogImages[currentDogImageIndex].imgName);
   oldImage.classList.add("moving-out")
 
   // Set image current image index and Display the new image
@@ -76,8 +76,8 @@ const nextDogImage = (direction) => {
   } else {
     currentDogImageIndex = (currentDogImageIndex - 1);
   }
-  if (currentDogImageIndex >= images.length) {currentDogImageIndex  = 0}
-  if (currentDogImageIndex === -1) {currentDogImageIndex  = (images.length - 1)}
+  if (currentDogImageIndex >= dogImages.length) {currentDogImageIndex  = 0}
+  if (currentDogImageIndex === -1) {currentDogImageIndex  = (dogImages.length - 1)}
   displayDogImage();
 
   // After the transition is done, remove the old image from the DOM, enable buttons 
